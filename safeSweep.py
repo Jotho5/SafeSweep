@@ -10,7 +10,7 @@ from gvm.protocols.gmp import Gmp
 from gvm.transforms import EtreeTransform
 from gvm.errors import GvmError
 
-# Setting up logging to track scan activities
+# Setting up logging to track scan activities 
 logging.basicConfig(filename='vulnerability_scan.log', level=logging.INFO)
 
 class OpenVASVulnerabilityManager:
