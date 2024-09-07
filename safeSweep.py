@@ -99,7 +99,7 @@ class OpenVASVulnerabilityManager:
                 logging.error(f"NVT script {nvt_script} not found.")
                 raise FileNotFoundError(f"NVT script {nvt_script} not found.")
 
-            # Copy the custom NVT script to the OpenVAS plugins directory
+            # This is where you'll able to import the custom NVT script to OpenVAS 
             destination_path = os.path.join(nvt_directory, os.path.basename(nvt_script))
             shutil.copyfile(nvt_script, destination_path)
             logging.info(f"Custom NVT script {nvt_name} copied to {nvt_directory}.")
@@ -113,7 +113,7 @@ class OpenVASVulnerabilityManager:
             logging.error(f"Error adding custom NVT: {e}")
             raise RuntimeError("Failed to add custom NVT") from e
 
-    # Function to log messages to Splunk through its HTTP Event Collector (HEC)
+    # Logs messages to Splunk through its HTTP Event Collector (HEC)
     def log_to_siem(self, message: str, splunk_hec_url: str, splunk_token: str):
         try:
             # Set headers required for the Splunk HEC API
@@ -150,10 +150,10 @@ def main():
     openvas_password = os.getenv('OPENVAS_PASSWORD', 'password')
 
     try:
-        # Initialize the OpenVAS manager
+        # OpenVAS manager
         openvas_manager = OpenVASVulnerabilityManager(openvas_host, openvas_port, openvas_username, openvas_password)
 
-        # Define target details
+        # Define the target 
         target_name = 'Test Server'
         target_ip = '192.168.1.100'
         scan_config_id = 'daba56c8-73ec-11df-a475-002264764cea'  # Full and fast scan
@@ -164,7 +164,7 @@ def main():
         # Fetch the scan report
         openvas_manager.fetch_scan_report(task_id)
 
-        # Add a custom NVT (vulnerability test script)
+        # This is where you load the NVT script
         nvt_script_path = '/path/to/custom_script.nasl'
         nvt_directory = '/var/lib/openvas/plugins/'
         openvas_manager.add_custom_nvt(nvt_name="Custom Vulnerability", nvt_script=nvt_script_path, nvt_directory=nvt_directory)
@@ -178,6 +178,5 @@ def main():
         logging.error(f"An error occurred: {e}")
         sys.exit(1)
 
-# Entry point of the script
 if __name__ == "__main__":
     main()
