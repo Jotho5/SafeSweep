@@ -1,0 +1,4 @@
+gvm-tools
+requests
+lxml
+logging
