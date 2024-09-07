@@ -1,4 +1,4 @@
-# VulnPatrol — OpenVAS Vulnerability Management Tool 📃
+# VulnPatrol — OpenVAS Vulnerability Tool 📃
 
 You can automate vulnerability scans, add custom signatures, and send scan logs to a SIEM system like Splunk with this repository's OpenVAS vulnerability management system, which is Python-based.
 
