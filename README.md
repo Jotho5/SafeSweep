@@ -20,5 +20,5 @@ Before using this project, make sure you have the following:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/vulnPatrol.git
-cd vulnPatrol
+git clone https://github.com/jotho5/safeSweep.git
+cd safeSweep
